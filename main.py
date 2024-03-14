@@ -24,7 +24,7 @@ def main(max_worker, output_dir, dataset_slice):
 
         df = pd.DataFrame(results)
         model_safe_name = model.replace('/', '_')
-        df.to_csv(os.path.join(output_dir, f"{model_safe_name}_results"), index=False)
+        df.to_csv(os.path.join(output_dir, f"{model_safe_name}_results.csv"), index=False)
 
 
 if __name__ == "__main__":

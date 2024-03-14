@@ -37,12 +37,7 @@ class GPT:
 
     def __init__(self, api_key: str):
         self.client = OpenAI(api_key=api_key)
-        self.system_prompt = "Step 1: Analyze context for answering questions.\n"
-
-    "Step 2: Decide context is relevant with question or not relevant with question.\n "
-    "Step 3: If any topic about question mentioned in context, use that information for question.\n "
-    "Step 4: If context has not mention on question, ignore that context I give you and use your self knowledge.\n "
-    "Step 5: Answer the question.\n "
+        self.system_prompt = "Answer the question.\n"
 
     def generate(self, model: str, prompt: str) -> Optional[str]:
         try:

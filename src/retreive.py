@@ -67,8 +67,8 @@ class RAG:
         for i in range(max_retries):
             try:
                 if self.model.__class__ == Cohere:
-                    return context, self.model(model_id, prompt.format("", question), {"title": title, "text": context})
-                return context, self.model(model_id, prompt.format(context, question))
+                    return context, self.model.generate(model_id, prompt.format("", question), {"title": title, "text": context})
+                return context, self.model.generate(model_id, prompt.format(context, question))
             except Exception as e:
                 if i < max_retries - 1:  # i is zero indexed
                     time.sleep(2 ** i)  # exponential backoff
