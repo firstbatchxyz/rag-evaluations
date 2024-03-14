@@ -1,0 +1,7 @@
+replicate==0.24.0
+cohere==4.55
+openai==1.14.0
+dria==0.1.19
+datasets==2.18.0
+pandas==2.2.1
+tqdm==4.65.0
