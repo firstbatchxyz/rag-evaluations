@@ -1,8 +1,10 @@
 import os
+from typing import Optional, Dict
+
 import cohere
+import ollama
 import replicate
 from openai import OpenAI
-from typing import Optional, Dict
 
 
 class Cohere:
@@ -93,3 +95,27 @@ class Replicate:
             return generated_text
         except Exception as e:
             raise Exception(f"Error generating response with Replicate: {e}") from e
+
+
+class Ollama:
+    """
+    This class is used to generate responses using the Ollama Local LLMs.
+    """
+
+    @staticmethod
+    def generate(model: str, prompt: str) -> Optional[str]:
+        response = ollama.chat(model=model, messages=[
+            {
+                'role': 'system',
+                'content': "Step 1: Analyze context for answering questions.\n"
+                           "Step 2: Decide context is relevant with question or not relevant with question.\n "
+                           "Step 3: If any topic about question mentioned in context, use that information for question.\n "
+                           "Step 4: If context has not mention on question, ignore that context I give you and use your self knowledge.\n "
+                           "Step 5: Answer the question.\n ",
+            },
+            {
+                'role': 'user',
+                'content': prompt,
+            },
+        ])
+        return response['message']['content']

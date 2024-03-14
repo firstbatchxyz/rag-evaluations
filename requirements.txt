@@ -5,3 +5,4 @@ dria==0.1.19
 datasets==2.18.0
 pandas==2.2.1
 tqdm==4.65.0
+ollama==0.25.2

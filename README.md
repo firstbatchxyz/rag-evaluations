@@ -15,6 +15,7 @@ We evaluate the validation subset of the dataset, which contains 7405 question-a
 - Command R
 - Meta Llama 70B
 - Meta Llama 13B
+- GPT3.5-Turbo
 
 Project includes a Judge class for [GPT-as-a-judge](https://arxiv.org/pdf/2306.05685.pdf). This class is used to evaluate generations by LLMs 
 using ```gpt-4-0125-preview```
